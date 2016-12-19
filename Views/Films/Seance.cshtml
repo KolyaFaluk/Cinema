@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Cinema.Models.Seance>
+
+@{
+    ViewBag.Title = "Seances";
+}
+
+<h2>Выберите сеанс</h2>
+<p>
+    @Html.ActionLink("Добавить сеанс", "Create", "Seances")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Film.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Film.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            @{
+                int id = ViewBag.Iddd;
+            }
+            <td>
+                <a href="/Seances/Ticket/@item.Id" class="btn btn-default">Купить</a>
+                </td>
+            <td>
+            <td><a href="/Seances/Delete/@item.Id" class="btn btn-default">Удалить сеанс</a></td> 
+            
+        </tr>
+        
+                }
+
+</table>
